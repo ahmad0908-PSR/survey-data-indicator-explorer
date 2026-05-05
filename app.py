@@ -5,34 +5,50 @@ import plotly.express as px
 
 st.markdown("""
 <style>
-/* ================= THEME-SAFE GLASS UI ================= */
+/* ================= FORCE DARK SIDEBAR ================= */
 
-/* Sidebar: glass background, theme-aware text */
+/* Sidebar container */
 section[data-testid="stSidebar"] {
-    background: rgba(15, 23, 42, 0.85);
+    background: rgba(15, 23, 42, 0.95);
     backdrop-filter: blur(8px);
     border-right: 1px solid rgba(255,255,255,0.08);
+
+    /* ✅ Force dark text variables */
+    --text-color: #e5e7eb;
+    --label-color: #e5e7eb;
+    --secondaryTextColor: #cbd5e1;
 }
 
-/* ✅ Let Streamlit control ALL text colors */
-section[data-testid="stSidebar"] * {
-    color: inherit !important;
+/* ✅ Force all sidebar text explicitly */
+section[data-testid="stSidebar"] label,
+section[data-testid="stSidebar"] span,
+section[data-testid="stSidebar"] div,
+section[data-testid="stSidebar"] p {
+    color: #e5e7eb !important;
 }
 
-/* Metric cards (glass panels) */
+/* ================= GLASS UI ================= */
+
+/* Metrics */
 div[data-testid="stMetric"] {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 16px;
     padding: 12px;
-    backdrop-filter: blur(6px);
     border: 1px solid rgba(255,255,255,0.08);
 }
 
-/* Plotly charts */
+/* Charts */
 div[data-testid="stPlotlyChart"] {
     background: rgba(255, 255, 255, 0.03);
     border-radius: 16px;
     padding: 12px;
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Tables */
+div[data-testid="stDataFrame"] {
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
     border: 1px solid rgba(255,255,255,0.06);
 }
 </style>
