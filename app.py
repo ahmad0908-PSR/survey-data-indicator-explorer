@@ -5,21 +5,20 @@ import plotly.express as px
 
 st.markdown("""
 <style>
-/* ================= FORCE DARK SIDEBAR ================= */
+/* ================= GLOBAL DARK MODE LOCK ================= */
 
-/* Sidebar container */
+/* Sidebar */
 section[data-testid="stSidebar"] {
     background: rgba(15, 23, 42, 0.95);
     backdrop-filter: blur(8px);
     border-right: 1px solid rgba(255,255,255,0.08);
 
-    /* ✅ Force dark text variables */
     --text-color: #e5e7eb;
     --label-color: #e5e7eb;
     --secondaryTextColor: #cbd5e1;
 }
 
-/* ✅ Force all sidebar text explicitly */
+/* Sidebar text */
 section[data-testid="stSidebar"] label,
 section[data-testid="stSidebar"] span,
 section[data-testid="stSidebar"] div,
@@ -27,9 +26,35 @@ section[data-testid="stSidebar"] p {
     color: #e5e7eb !important;
 }
 
-/* ================= GLASS UI ================= */
+/* ================= DROPDOWN / SELECT OPTIONS FIX ================= */
 
-/* Metrics */
+/* Dropdown panel */
+div[data-baseweb="popover"] {
+    background-color: #020617 !important;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+}
+
+/* Dropdown option list */
+ul[role="listbox"] {
+    background-color: #020617 !important;
+}
+
+/* Individual options */
+li[role="option"] {
+    color: #e5e7eb !important;
+    background-color: transparent !important;
+}
+
+/* Hover / active state */
+li[role="option"]:hover,
+li[role="option"][aria-selected="true"] {
+    background-color: rgba(56, 189, 248, 0.15) !important;
+    color: #e5e7eb !important;
+}
+
+/* ================= GLASS PANELS ================= */
+
 div[data-testid="stMetric"] {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 16px;
@@ -37,7 +62,6 @@ div[data-testid="stMetric"] {
     border: 1px solid rgba(255,255,255,0.08);
 }
 
-/* Charts */
 div[data-testid="stPlotlyChart"] {
     background: rgba(255, 255, 255, 0.03);
     border-radius: 16px;
@@ -45,7 +69,6 @@ div[data-testid="stPlotlyChart"] {
     border: 1px solid rgba(255,255,255,0.06);
 }
 
-/* Tables */
 div[data-testid="stDataFrame"] {
     background: rgba(255,255,255,0.03);
     border-radius: 12px;
@@ -53,6 +76,7 @@ div[data-testid="stDataFrame"] {
 }
 </style>
 """, unsafe_allow_html=True)
+
 
 
 # --------------------------------------------------
